@@ -2,23 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Portfolio of Nishant Singh, a Machine Learning Engineer">
-  <meta name="keywords" content="Nishant Singh, Machine Learning Engineer, Data Scientist, AI">
+  <meta name="description" content="Portfolio of Nishant Singh, a Machine Learning/GenAI Engineer">
+  <meta name="keywords" content="Nishant Singh, Machine Learning Engineer, Data Scientist, Generative AI, LangChain, LangGraph">
   <meta name="author" content="Nishant Singh">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nishant Singh | Machine Learning Engineer</title>
+  <title>Nishant Singh | Generative AI Engineer</title>
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Using Montserrat and Poppins together -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap"
     rel="stylesheet"
-  >
+  />
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- You can add more design references or CSS frameworks if desired -->
 </head>
 <body>
   <!-- Particles Background -->
@@ -44,7 +47,7 @@
   <section id="home" class="home-section">
     <div class="home-content">
       <h1>Hello, I'm <span class="highlight">Nishant Singh</span></h1>
-      <p>Machine Learning Engineer | Data Scientist | AI Enthusiast</p>
+      <p>Generative AI Engineer | Data Scientist | ML Researcher</p>
       <a href="#about" class="btn">Explore More</a>
     </div>
   </section>
@@ -55,10 +58,17 @@
       <h2 class="section-title">About Me</h2>
       <div class="about-content">
         <p>
-          Dynamic Data Scientist with expertise in deep learning, NLP, neural network optimization, and data cleaning. Skilled in designing advanced machine learning models using Python and frameworks like TensorFlow, PyTorch, and Hugging Face. Experienced in sequence modeling, sentiment analysis, recommendation systems, and efficient RNN architectures.
+          I am a <strong>Generative AI Engineer</strong> and <strong>Data Scientist</strong> with hands-on experience
+          in designing and deploying large-scale language models. Proficient in advanced frameworks like
+          <strong>LangChain</strong>, <strong>LangGraph</strong>, and <strong>Hugging Face</strong>, I specialize
+          in <em>Retrieval-Augmented Generation (RAG)</em>, custom pipeline orchestration, and building end-to-end
+          machine learning solutions from data ingestion to production deployment.
         </p>
         <p>
-          Passionate about solving challenges and delivering scalable, data-driven solutions. Currently advancing RNN optimization research at DePaul University for top-tier publications.
+          My core expertise spans <strong>transformer architectures, LLM fine-tuning</strong>, and orchestrating
+          advanced MLOps practices for seamless model lifecycle management. Currently, I'm refining RNN-based gating
+          mechanisms at <strong>DePaul University</strong>, aiming to publish breakthroughs in top-tier AI conferences.
+          I’m passionate about bridging cutting-edge research with practical business impact in the evolving GenAI space.
         </p>
       </div>
     </div>
@@ -74,10 +84,10 @@
         <h3>Graduate Research Assistant</h3>
         <h4>DePaul University | 11/2024 - Present | Chicago, IL</h4>
         <ul>
-          <li>Formulated RNN variants with efficient gating mechanisms using Python and PyTorch, improving model accuracy over GRU/LSTM.</li>
-          <li>Executed experiments to identify critical gating components for long-range dependencies.</li>
-          <li>Benchmarked performance on sentiment analysis and language translation tasks.</li>
-          <li>Communicated findings through technical reports and presentations for top-tier conferences.</li>
+          <li>Developing novel RNN gating mechanisms to improve sequence modeling in NLP tasks (sentiment analysis, language translation).</li>
+          <li>Implementing end-to-end ML pipelines with <strong>LangChain</strong> for data retrieval, model training, and inference.</li>
+          <li>Collaborating on advanced <strong>Generative AI</strong> research aimed at top-tier conferences (NeurIPS, ICLR).</li>
+          <li>Utilizing Python, PyTorch, and Hugging Face to build and optimize state-of-the-art language models.</li>
         </ul>
       </div>
 
@@ -86,9 +96,9 @@
         <h3>Data Analyst Intern</h3>
         <h4>Global Shala Education Pvt. Ltd. | 01/2023 - 02/2023 | Gurugram, India</h4>
         <ul>
-          <li>Created dynamic dashboards in R/Tableau to analyze ad spend, reach, and impressions.</li>
-          <li>Reduced ad spend by 15% and boosted ROI by 20% with actionable insights.</li>
-          <li>Collaborated cross-functionally to optimize targeting strategies.</li>
+          <li>Created dynamic dashboards using R/Tableau to visualize ad spend, reach, and impressions.</li>
+          <li>Discovered inefficiencies that lowered ad costs by 15% and boosted ROI by 20% through data-driven insights.</li>
+          <li>Introduced advanced analytics processes to optimize targeting strategies and marketing workflows.</li>
         </ul>
       </div>
 
@@ -97,9 +107,9 @@
         <h3>Machine Learning & Data Analysis Intern</h3>
         <h4>Feynn Labs Services | 11/2021 - 01/2022 | Assam, India</h4>
         <ul>
-          <li>Conducted ML job market segmentation, increasing application success by 30%.</li>
-          <li>Programmed predictive models to improve forecasting accuracy by 20%.</li>
-          <li>Built interactive dashboards to streamline high-value opportunities.</li>
+          <li>Conducted comprehensive ML job market segmentation, boosting application success rates by 30%.</li>
+          <li>Engineered predictive models that improved forecasting accuracy by 20%, streamlining market predictions.</li>
+          <li>Built interactive dashboards to highlight high-value opportunities for stakeholders.</li>
         </ul>
       </div>
     </div>
@@ -113,68 +123,90 @@
       <div class="projects-grid">
         <!-- Project Card 1 -->
         <div class="card project-card">
-          <h3>End-to-End Chicken Disease Classification</h3>
-          <p>Deep Learning (CNN), MLOps (DVC), Docker, AWS, CI/CD (GitHub Actions)</p>
-          <a
-            href="https://github.com/nishantsingh-ds/Chicken-Disease-Classification"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub Repo
-          </a>
+          <h3>Agentic AI Job Application Assistant</h3>
+          <p>Generates ATS-friendly resumes, cover letters, and cold emails using GPT-based LLMs.</p>
+          <p><em>Tech Stack:</em> Python, LangChain, GPT-4, Streamlit</p>
+          <div class="project-links">
+            <a
+              href="https://ai-resume-assistantt.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Live Streamlit App
+            </a>
+            <a
+              href="https://github.com/nishantsingh-ds/AI-Resume-Assistant"
+              target="_blank"
+              class="project-link"
+            >
+              GitHub Repo
+            </a>
+          </div>
         </div>
 
         <!-- Project Card 2 -->
         <div class="card project-card">
-          <h3>Conversational AI</h3>
-          <p>RNN, LSTM, Encoder-Decoder, Transformers (BERT, GPT), TensorFlow, Keras, HuggingFace</p>
-          <a
-            href="https://github.com/nishantsingh-ds/CHATBOT/tree/main"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub Repo
-          </a>
+          <h3>Agentic AI Research Paper Summarizer</h3>
+          <p>Interactive RAG system to query and summarize arXiv research papers.</p>
+          <p><em>Tech Stack:</em> Python, LangGraph, Hugging Face, Streamlit</p>
+          <div class="project-links">
+            <a
+              href="https://research-paper-summarizer-wj3rhzxeahmxdkqfbpsn7q.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Live Streamlit App
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              class="project-link"
+            >
+              GitHub Repo
+            </a>
+          </div>
         </div>
 
         <!-- Project Card 3 -->
         <div class="card project-card">
-          <h3>Anime Recommendation System</h3>
-          <p>K-Means, DBSCAN, PCA, t-SNE, Collaborative & Content-Based Filtering</p>
-          <a
-            href="https://github.com/nishantsingh-ds/Anime-Recommendation/tree/main"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub Repo
-          </a>
+          <h3>Chicken Disease Classification Pipeline</h3>
+          <p>End-to-end CNN pipeline with MLOps integration, Docker, and AWS CI/CD.</p>
+          <p><em>Tech Stack:</em> Python, TensorFlow, DVC, Docker, AWS</p>
+          <div class="project-links">
+            <a
+              href="https://chicken-disease-classify.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Live Streamlit App
+            </a>
+            <a
+              href="https://github.com/nishantsingh-ds/Chicken-Disease-Classification"
+              target="_blank"
+              class="project-link"
+            >
+              GitHub Repo
+            </a>
+          </div>
         </div>
 
         <!-- Project Card 4 -->
         <div class="card project-card">
-          <h3>Sentiment Analysis</h3>
-          <p>Web Scraping (BeautifulSoup), Text Processing (Tokenization, Lemmatization), NLTK</p>
-          <a
-            href="https://github.com/nishantsingh23pbt/Text-Analysis/blob/main/Text%20Analysis-checkpoint.ipynb"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub Repo
-          </a>
+          <h3>Conversational AI (Chatbot)</h3>
+          <p>RNN, LSTM, Transformers (BERT, GPT) to build an interactive AI chatbot.</p>
+          <p><em>Tech Stack:</em> Python, PyTorch, Hugging Face</p>
+          <div class="project-links">
+            <a
+              href="https://github.com/nishantsingh-ds/CHATBOT/tree/main"
+              target="_blank"
+              class="project-link"
+            >
+              GitHub Repo
+            </a>
+          </div>
         </div>
 
-        <!-- Project Card 5 -->
-        <div class="card project-card">
-          <h3>Employee Attrition Prediction</h3>
-          <p>Random Forest, AdaBoost, Gradient Boosting, GridSearchCV, Hyperparameter Tuning</p>
-          <a
-            href="https://github.com/nishantsingh-ds/Employee-Attrition-Prediction-and-Analysis/tree/main"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub Repo
-          </a>
-        </div>
+        <!-- Add more projects or rearrange as needed -->
       </div>
     </div>
   </section>
@@ -235,8 +267,11 @@
   </footer>
 
   <!-- Scripts -->
+  <!-- For background particles -->
   <script src="particles.js"></script>
+  <!-- For typed text or custom scripts -->
   <script src="app.js"></script>
+  <!-- Additional custom JavaScript functions -->
   <script src="script.js"></script>
 </body>
 </html>
