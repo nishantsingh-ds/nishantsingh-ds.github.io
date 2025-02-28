@@ -1,9 +1,23 @@
-// Toggle navigation menu on smaller screens
-const menu = document.getElementById("menu");
-const navLinks = document.querySelector(".nav-links");
+// Mobile menu toggle
+const menuIcon = document.getElementById("menuIcon");
+const navLinks = document.getElementById("navLinks");
 
-if(menu) {
-  menu.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
+menuIcon.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+
+// Smooth scroll (optional)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if(target) {
+      window.scrollTo({
+        top: target.offsetTop - 60, // offset for fixed navbar
+        behavior: "smooth"
+      });
+      // Close mobile menu on click
+      navLinks.classList.remove("show");
+    }
   });
-}
+});
