@@ -8,6 +8,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nishant Singh | Machine Learning Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -16,18 +25,19 @@
   <div id="particles-js"></div>
 
   <!-- Header / Navigation -->
-  <header>
-    <nav class="navbar">
+  <header class="navbar">
+    <div class="nav-container">
       <div class="logo">Nishant Singh</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </nav>
+      <div class="menu-icon" id="menuIcon">&#9776;</div>
+    </div>
   </header>
 
   <!-- Home Section -->
@@ -40,130 +50,188 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="about-section">
-    <h2>About Me</h2>
-    <div class="about-content">
-      <p>
-        Dynamic Data Scientist with expertise in deep learning, NLP, neural network optimization, and data cleaning. Skilled in designing advanced machine learning models using Python and frameworks like TensorFlow, PyTorch, and Hugging Face. Experienced in sequence modeling, sentiment analysis, recommendation systems, and efficient RNN architectures.
-      </p>
-      <p>
-        Passionate about solving challenges and delivering scalable, data-driven solutions. Currently advancing RNN optimization research at DePaul University for top-tier publications.
-      </p>
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <p>
+          Dynamic Data Scientist with expertise in deep learning, NLP, neural network optimization, and data cleaning. Skilled in designing advanced machine learning models using Python and frameworks like TensorFlow, PyTorch, and Hugging Face. Experienced in sequence modeling, sentiment analysis, recommendation systems, and efficient RNN architectures.
+        </p>
+        <p>
+          Passionate about solving challenges and delivering scalable, data-driven solutions. Currently advancing RNN optimization research at DePaul University for top-tier publications.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- Experience Section -->
-  <section id="experience" class="experience-section">
-    <h2>Experience</h2>
+  <section id="experience" class="section alt-bg">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
 
-    <div class="experience-item">
-      <h3>Graduate Research Assistant</h3>
-      <h4>DePaul University <span> | 11/2024 - Present | Chicago, IL</span></h4>
-      <ul>
-        <li>Formulated RNN variants with efficient gating mechanisms using Python and PyTorch, improving model accuracy over GRU/LSTM.</li>
-        <li>Executed experiments to identify the critical roles of gating components in maintaining long-range dependencies.</li>
-        <li>Benchmarked performance on sentiment analysis and language translation tasks, optimizing model outcomes.</li>
-        <li>Communicated findings through technical reports and presentations targeting top-tier conferences (NeurIPS, ICLR).</li>
-      </ul>
-    </div>
+      <!-- Experience Card 1 -->
+      <div class="card">
+        <h3>Graduate Research Assistant</h3>
+        <h4>DePaul University | 11/2024 - Present | Chicago, IL</h4>
+        <ul>
+          <li>Formulated RNN variants with efficient gating mechanisms using Python and PyTorch, improving model accuracy over GRU/LSTM.</li>
+          <li>Executed experiments to identify critical gating components for long-range dependencies.</li>
+          <li>Benchmarked performance on sentiment analysis and language translation tasks.</li>
+          <li>Communicated findings through technical reports and presentations for top-tier conferences.</li>
+        </ul>
+      </div>
 
-    <div class="experience-item">
-      <h3>Data Analyst Intern</h3>
-      <h4>Global Shala Education Pvt. Ltd. <span> | 01/2023 - 02/2023 | Gurugram, India</span></h4>
-      <ul>
-        <li>Developed dynamic dashboards in R/Tableau to analyze ad campaign metrics like spend, reach, and impressions.</li>
-        <li>Uncovered inefficiencies reducing ad spend by 15% and improved campaign ROI by 20% with actionable insights.</li>
-        <li>Collaborated cross-functionally to facilitate data-driven decisions and optimize targeting strategies.</li>
-      </ul>
-    </div>
+      <!-- Experience Card 2 -->
+      <div class="card">
+        <h3>Data Analyst Intern</h3>
+        <h4>Global Shala Education Pvt. Ltd. | 01/2023 - 02/2023 | Gurugram, India</h4>
+        <ul>
+          <li>Created dynamic dashboards in R/Tableau to analyze ad spend, reach, and impressions.</li>
+          <li>Reduced ad spend by 15% and boosted ROI by 20% with actionable insights.</li>
+          <li>Collaborated cross-functionally to optimize targeting strategies.</li>
+        </ul>
+      </div>
 
-    <div class="experience-item">
-      <h3>Machine Learning & Data Analysis Intern</h3>
-      <h4>Feynn Labs Services <span> | 11/2021 - 01/2022 | Assam, India</span></h4>
-      <ul>
-        <li>Conducted segmentation analysis of the ML job market, boosting job application success rates by 30%.</li>
-        <li>Programmed predictive models that improved forecasting accuracy by 20%.</li>
-        <li>Built interactive dashboards to identify high-value opportunities and streamline application workflows.</li>
-      </ul>
+      <!-- Experience Card 3 -->
+      <div class="card">
+        <h3>Machine Learning & Data Analysis Intern</h3>
+        <h4>Feynn Labs Services | 11/2021 - 01/2022 | Assam, India</h4>
+        <ul>
+          <li>Conducted ML job market segmentation, increasing application success by 30%.</li>
+          <li>Programmed predictive models to improve forecasting accuracy by 20%.</li>
+          <li>Built interactive dashboards to streamline high-value opportunities.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="projects-section">
-    <h2>Projects</h2>
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
 
-    <div class="project-item">
-      <h3>End-to-End Chicken Disease Classification</h3>
-      <p>Deep Learning (CNN), MLOps (DVC), Docker, AWS, CI/CD (GitHub Actions)</p>
-      <p>
-        <a href="https://github.com/nishantsingh-ds/Chicken-Disease-Classification" target="_blank" class="project-link">GitHub Repo</a>
-      </p>
-    </div>
+      <div class="projects-grid">
+        <!-- Project Card 1 -->
+        <div class="card project-card">
+          <h3>End-to-End Chicken Disease Classification</h3>
+          <p>Deep Learning (CNN), MLOps (DVC), Docker, AWS, CI/CD (GitHub Actions)</p>
+          <a
+            href="https://github.com/nishantsingh-ds/Chicken-Disease-Classification"
+            target="_blank"
+            class="project-link"
+          >
+            GitHub Repo
+          </a>
+        </div>
 
-    <div class="project-item">
-      <h3>Conversational AI</h3>
-      <p>RNN, LSTM, Encoder-Decoder, Transformers (BERT, GPT), TensorFlow, Keras, HuggingFace, NLP</p>
-      <p>
-        <a href="https://github.com/nishantsingh-ds/CHATBOT/tree/main" target="_blank" class="project-link">GitHub Repo</a>
-      </p>
-    </div>
+        <!-- Project Card 2 -->
+        <div class="card project-card">
+          <h3>Conversational AI</h3>
+          <p>RNN, LSTM, Encoder-Decoder, Transformers (BERT, GPT), TensorFlow, Keras, HuggingFace</p>
+          <a
+            href="https://github.com/nishantsingh-ds/CHATBOT/tree/main"
+            target="_blank"
+            class="project-link"
+          >
+            GitHub Repo
+          </a>
+        </div>
 
-    <div class="project-item">
-      <h3>Anime Recommendation System</h3>
-      <p>K-Means, DBSCAN, PCA, t-SNE, Collaborative & Content-Based Filtering, Cosine Similarity</p>
-      <p>
-        <a href="https://github.com/nishantsingh-ds/Anime-Recommendation/tree/main" target="_blank" class="project-link">GitHub Repo</a>
-      </p>
-    </div>
+        <!-- Project Card 3 -->
+        <div class="card project-card">
+          <h3>Anime Recommendation System</h3>
+          <p>K-Means, DBSCAN, PCA, t-SNE, Collaborative & Content-Based Filtering</p>
+          <a
+            href="https://github.com/nishantsingh-ds/Anime-Recommendation/tree/main"
+            target="_blank"
+            class="project-link"
+          >
+            GitHub Repo
+          </a>
+        </div>
 
-    <div class="project-item">
-      <h3>Sentiment Analysis</h3>
-      <p>Web Scraping (BeautifulSoup), Text Processing (Tokenization, Lemmatization), NLTK</p>
-      <p>
-        <a href="https://github.com/nishantsingh23pbt/Text-Analysis/blob/main/Text%20Analysis-checkpoint.ipynb" target="_blank" class="project-link">GitHub Repo</a>
-      </p>
-    </div>
+        <!-- Project Card 4 -->
+        <div class="card project-card">
+          <h3>Sentiment Analysis</h3>
+          <p>Web Scraping (BeautifulSoup), Text Processing (Tokenization, Lemmatization), NLTK</p>
+          <a
+            href="https://github.com/nishantsingh23pbt/Text-Analysis/blob/main/Text%20Analysis-checkpoint.ipynb"
+            target="_blank"
+            class="project-link"
+          >
+            GitHub Repo
+          </a>
+        </div>
 
-    <div class="project-item">
-      <h3>Employee Attrition Prediction</h3>
-      <p>Random Forest, AdaBoost, Gradient Boosting, GridSearchCV, Hyperparameter Tuning</p>
-      <p>
-        <a href="https://github.com/nishantsingh-ds/Employee-Attrition-Prediction-and-Analysis/tree/main" target="_blank" class="project-link">GitHub Repo</a>
-      </p>
+        <!-- Project Card 5 -->
+        <div class="card project-card">
+          <h3>Employee Attrition Prediction</h3>
+          <p>Random Forest, AdaBoost, Gradient Boosting, GridSearchCV, Hyperparameter Tuning</p>
+          <a
+            href="https://github.com/nishantsingh-ds/Employee-Attrition-Prediction-and-Analysis/tree/main"
+            target="_blank"
+            class="project-link"
+          >
+            GitHub Repo
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Education Section -->
-  <section id="education" class="education-section">
-    <h2>Education</h2>
-    <div class="education-item">
-      <h3>DePaul University</h3>
-      <h4>M.S. in Data Science <span> | Expected Graduation: 05/2025</span></h4>
-      <p>Core: Regression, Python, Programming ML Apps, Statistical Data Analysis, Advanced ML, Deep Learning, Transfer Learning, Big Data, Cloud Data Engineering</p>
-    </div>
-    <div class="education-item">
-      <h3>University of Delhi</h3>
-      <h4>B.Sc. in Mathematical Science <span> | 07/2018 - 04/2021</span></h4>
-      <p>Core: Calculus, Linear Algebra, Probability Theory, Statistical Methods, Operating Systems, Programming Algorithms</p>
+  <section id="education" class="section alt-bg">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+
+      <div class="card">
+        <h3>DePaul University</h3>
+        <h4>M.S. in Data Science | Expected Graduation: 05/2025</h4>
+        <p>
+          Core: Regression, Python, ML Apps, Statistical Data Analysis, Advanced ML, Deep Learning, Transfer Learning, Big Data, Cloud Data Engineering
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>University of Delhi</h3>
+        <h4>B.Sc. in Mathematical Science | 07/2018 - 04/2021</h4>
+        <p>
+          Core: Calculus, Linear Algebra, Probability Theory, Statistical Methods, Operating Systems, Programming Algorithms
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <h2>Contact</h2>
-    <p>Interested in discussing a project or just want to say hello? Reach out below.</p>
-    <div class="contact-info">
-      <p><i class="fas fa-phone"></i> +1 (513) 972-7243</p>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:nishantsinghns.mail@gmail.com">nishantsinghns.mail@gmail.com</a></p>
-      <p><i class="fab fa-linkedin"></i> <a href="http://www.linkedin.com/in/nishantsinghh" target="_blank">LinkedIn</a></p>
-      <p><i class="fab fa-github"></i> <a href="https://github.com/nishantsingh-ds" target="_blank">GitHub</a></p>
-      <p><i class="fab fa-kaggle"></i> <a href="https://www.kaggle.com/nishantsingh23pbt" target="_blank">Kaggle</a></p>
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="contact-intro">
+        Interested in discussing a project or just want to say hello? Reach out below.
+      </p>
+      <div class="contact-info">
+        <p><i class="fas fa-phone"></i> +1 (513) 972-7243</p>
+        <p><i class="fas fa-envelope"></i>
+          <a href="mailto:nishantsinghns.mail@gmail.com">nishantsinghns.mail@gmail.com</a>
+        </p>
+        <p><i class="fab fa-linkedin"></i>
+          <a href="http://www.linkedin.com/in/nishantsinghh" target="_blank">LinkedIn</a>
+        </p>
+        <p><i class="fab fa-github"></i>
+          <a href="https://github.com/nishantsingh-ds" target="_blank">GitHub</a>
+        </p>
+        <p><i class="fab fa-kaggle"></i>
+          <a href="https://www.kaggle.com/nishantsingh23pbt" target="_blank">Kaggle</a>
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Nishant Singh. All Rights Reserved.</p>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Nishant Singh. All Rights Reserved.</p>
+    </div>
   </footer>
 
   <!-- Scripts -->
