@@ -2,126 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="author" content="Nishant Singh">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Particle Animation</title>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      background-color: #1a1a1a;
-    }
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
+  <meta name="keywords" content="Nishant Singh, portfolio, projects, AI, machine learning, data science" />
+  <meta name="description" content="Nishant Singh's portfolio to showcase data science and AI projects, skills, and contributions." />
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/95a2002ecf.js" crossorigin="anonymous"></script>
+  <link id='favicon' rel="shortcut icon" href="./Images/N.png" type="image/x-png">
+  <title>Nishant Singh - Data Scientist & Machine Learning Enthusiast</title>
 </head>
 <body>
+  <header>
+    <a href="#about" class="logo"><i class="fa fa-at"></i> Nishant Singh</a>
+    <div id="menu" class="fas fa-bars"></div>
+    <nav class="navbar">
+      <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#work">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1FEHD7C-eIT7S2FtjRGr9v2KXnOVP4trG?usp=sharing" target="_blank">Certificates</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div id="particles-js"></div>
+  <section class="home" id="home">
+    <div id="particles-js"></div>
+    <div class="content">
+      <h2>Hi There,<br/> I'm Nishant Singh<span></span></h2>
+      <p>AI Enthusiast | Data Scientist | Machine Learning Researcher</p>
+      <a href="#about" class="btn"><span>About Me</span>
+        <i class="fas fa-arrow-circle-down"></i>
+      </a>
+      <div class="socials">
+        <ul class="social-icons">
+          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/nishantsinghh" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
+          <li><a class="github" aria-label="GitHub" href="https://github.com/nishantsingh-ds" target="_blank"><i class="fab fa-github"></i></a></li>
+          <li><a class="email" aria-label="Gmail" href="mailto:nishantsinghns.mail@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS('particles-js',
-      {
-        "particles": {
-          "number": {
-            "value": 100,
-            "density": {
-              "enable": true,
-              "value_area": 1000
-            }
-          },
-          "color": {
-            "value": "#FFFFFF"
-          },
-          "shape": {
-            "type": "circle",
-            "stroke": {
-              "width": 0,
-              "color": "#FFFFFF"
-            }
-          },
-          "opacity": {
-            "value": 0.7,
-            "random": true,
-            "anim": {
-              "enable": true,
-              "speed": 1,
-              "opacity_min": 0.3,
-              "sync": false
-            }
-          },
-          "size": {
-            "value": 6,
-            "random": true,
-            "anim": {
-              "enable": true,
-              "speed": 4,
-              "size_min": 0.1,
-              "sync": false
-            }
-          },
-          "line_linked": {
-            "enable": true,
-            "distance": 200,
-            "color": "#FFFFFF",
-            "opacity": 0.4,
-            "width": 2
-          },
-          "move": {
-            "enable": true,
-            "speed": 5,
-            "direction": "none",
-            "random": true,
-            "straight": false,
-            "out_mode": "out",
-            "attract": {
-              "enable": false
-            }
-          }
-        },
-        "interactivity": {
-          "detect_on": "canvas",
-          "events": {
-            "onhover": {
-              "enable": true,
-              "mode": "bubble"
-            },
-            "onclick": {
-              "enable": true,
-              "mode": "push"
-            },
-            "resize": true
-          },
-          "modes": {
-            "grab": {
-              "distance": 350,
-              "line_linked": {
-                "opacity": 1
-              }
-            },
-            "bubble": {
-              "distance": 250,
-              "size": 40,
-              "duration": 2,
-              "opacity": 0.8,
-              "speed": 3
-            },
-            "repulse": {
-              "distance": 150
-            },
-            "push": {
-              "particles_nb": 6
-            },
-            "remove": {
-              "particles_nb": 2
-            }
-          }
-        },
-        "retina_detect": true
-      });
-  </script>
+  <!-- Other sections of your portfolio -->
+
+  <footer>
+    <p>&copy; 2025 Nishant Singh. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
