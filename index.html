@@ -2,435 +2,395 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Portfolio of Nishant Singh, a Machine Learning/Generative AI Engineer">
-  <meta name="keywords" content="Nishant Singh, Machine Learning Engineer, Data Scientist, Generative AI, LangChain, LangGraph">
-  <meta name="author" content="Nishant Singh">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nishant Singh | Generative AI Engineer</title>
-
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-xxxxxxxx" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Inline Styles for Demo Purposes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Portfolio - Nishant Singh</title>
   <style>
-    /* Base Styles */
-    body {
-      background-color: #f7f7f7;
-      color: #333;
-      font-family: 'Montserrat', sans-serif;
+    /* Reset & Base Styles */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      background: #f7f7f7;
+      color: #333;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     .container {
       width: 90%;
       max-width: 1200px;
-      margin: auto;
-      padding: 40px 0;
+      margin: 0 auto;
     }
-    h1, h2, h3, h4, p {
-      margin: 0 0 20px;
-    }
-    a {
-      text-decoration: none;
-    }
-    .btn {
-      background-color: #6200ea;
+    /* Header & Navigation */
+    header {
+      background: #6200ea;
       color: #fff;
-      padding: 10px 20px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-      display: inline-block;
-      margin-top: 10px;
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
     }
-    .btn:hover {
-      background-color: #7e3ff2;
-    }
-    /* Navbar */
     .navbar {
-      background-color: #6200ea;
-      color: #fff;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 10%;
     }
-    .nav-links {
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .nav-menu {
       list-style: none;
       display: flex;
-      gap: 20px;
     }
-    .nav-links li a {
+    .nav-menu li {
+      margin-left: 20px;
+    }
+    .nav-menu li a {
       color: #fff;
+      text-decoration: none;
       transition: color 0.3s ease;
     }
-    .nav-links li a:hover {
+    .nav-menu li a:hover {
       color: #ffeb3b;
     }
-    /* Dark Mode Toggle Button */
-    #dark-mode-toggle {
-      background: none;
-      border: 1px solid #fff;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 4px;
+    .menu-toggle {
+      display: none;
       cursor: pointer;
+      font-size: 1.5em;
     }
-    /* Home Section */
-    .home-section {
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: url('hero-bg.jpg') center center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 100px 0;
+      padding-top: 80px; /* account for fixed header */
     }
-    .home-section .highlight {
-      color: #6200ea;
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
     }
-    /* Video Introduction */
-    #video-intro {
-      background-color: #eaeaea;
-      padding: 60px 0;
-      text-align: center;
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
     }
-    .video-container {
-      max-width: 800px;
-      margin: auto;
+    .btn {
+      background: #6200ea;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #7e3ff2;
+    }
+    /* Sections */
+    section {
+      padding: 80px 0;
+    }
+    /* About Section */
+    #about {
+      background: #fff;
+    }
+    #about .content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    #about .profile-pic, 
+    #about .text {
+      flex: 1;
+      padding: 20px;
+    }
+    #about .profile-pic img {
+      width: 100%;
+      border-radius: 50%;
     }
     /* Skills Section */
     #skills {
-      background-color: #fff;
-      padding: 60px 0;
-    }
-    .skills-list {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .skills-list li {
-      background-color: #6200ea;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 4px;
+      background: #eaeaea;
     }
     .skill {
-      margin: 10px 0;
+      margin-bottom: 20px;
+    }
+    .skill h3 {
+      margin-bottom: 5px;
     }
     .progress {
-      background-color: #ddd;
-      border-radius: 4px;
-      overflow: hidden;
+      background: #ddd;
       height: 10px;
+      border-radius: 5px;
+      overflow: hidden;
     }
-    .progress-bar {
+    .progress .progress-bar {
+      background: #6200ea;
       height: 100%;
-      background-color: #6200ea;
+      width: 0;
+      transition: width 1s ease-in-out;
     }
-    /* Resume Download Section */
-    #resume {
-      background-color: #f0f0f0;
-      padding: 60px 0;
-      text-align: center;
+    /* Experience Section (Timeline) */
+    #experience {
+      background: #fff;
     }
-    /* Blog Section */
-    #blog {
-      padding: 60px 0;
-      background-color: #fff;
+    .timeline {
+      position: relative;
+      padding: 20px 0;
     }
-    .blog-post {
-      margin-bottom: 40px;
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #ccc;
     }
-    /* Testimonials Section */
-    #testimonials {
-      background-color: #eaeaea;
-      padding: 60px 0;
-      text-align: center;
-    }
-    blockquote {
-      font-style: italic;
-      margin: 20px auto;
-      max-width: 800px;
-    }
-    cite {
-      display: block;
-      margin-top: 10px;
-      color: #555;
-    }
-    /* Certifications Section */
-    #certifications {
-      padding: 60px 0;
-      background-color: #fff;
-    }
-    /* Demos Section */
-    #demos {
-      background-color: #f0f0f0;
-      padding: 60px 0;
-    }
-    .demo {
+    .timeline-item {
+      position: relative;
+      width: 45%;
+      padding: 20px;
+      background: #f7f7f7;
+      border-radius: 4px;
       margin-bottom: 30px;
     }
-    /* Contact Form */
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    .timeline-item:nth-child(even) {
+      left: 55%;
+    }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #6200ea;
+      border: 2px solid #fff;
+    }
+    .timeline-item:nth-child(odd)::after {
+      right: -10px;
+    }
+    .timeline-item:nth-child(even)::after {
+      left: -10px;
+    }
+    /* Projects Section */
+    #projects {
+      background: #eaeaea;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 4px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    /* Contact Section */
+    #contact {
+      background: #fff;
+    }
     #contact form {
       max-width: 600px;
-      margin: auto;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       gap: 15px;
-    }
-    #contact label {
-      font-weight: bold;
     }
     #contact input, #contact textarea {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      font-family: inherit;
-      font-size: 1rem;
+    }
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background: #121212;
+      color: #e0e0e0;
+    }
+    body.dark-mode header {
+      background: #1e1e1e;
+    }
+    body.dark-mode .btn {
+      background: #1e1e1e;
+    }
+    body.dark-mode .progress .progress-bar {
+      background: #1e1e1e;
     }
     /* Footer */
     footer {
-      background-color: #6200ea;
+      background: #6200ea;
       color: #fff;
       text-align: center;
       padding: 20px 0;
     }
-    /* Dark Mode Styles */
-    body.dark-mode {
-      background-color: #121212;
-      color: #e0e0e0;
-    }
-    body.dark-mode a,
-    body.dark-mode .nav-links li a {
-      color: #e0e0e0;
-    }
-    body.dark-mode .navbar {
-      background-color: #1e1e1e;
-    }
-    body.dark-mode .btn {
-      background-color: #1e1e1e;
-    }
-    body.dark-mode footer {
-      background-color: #1e1e1e;
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        background: #6200ea;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      #about .content {
+        flex-direction: column;
+      }
+      .timeline::before {
+        left: 20px;
+      }
+      .timeline-item {
+        width: 90%;
+        margin-left: 40px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Particles Background (if applicable) -->
-  <div id="particles-js"></div>
-
-  <!-- Header / Navigation -->
+  <!-- Header & Navigation -->
   <header>
-    <nav class="navbar" aria-label="Main Navigation">
+    <div class="container navbar">
       <div class="logo">Nishant Singh</div>
-      <ul class="nav-links">
+      <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+      <ul class="nav-menu" id="nav-menu">
         <li><a href="#home">Home</a></li>
-        <li><a href="#video-intro">Intro</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#resume">Resume</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#demos">Demos</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">Dark Mode</button>
-    </nav>
+      <button id="dark-mode-toggle">Dark Mode</button>
+    </div>
   </header>
 
-  <main>
-    <!-- Home Section -->
-    <section id="home" class="home-section">
-      <div class="container">
-        <h1>Hello, I'm <span class="highlight">Nishant Singh</span></h1>
-        <p>Generative AI Engineer | Data Scientist | ML Researcher</p>
-        <a href="#about" class="btn">Explore More</a>
-      </div>
-    </section>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Hello, I'm Nishant Singh</h1>
+      <p>Generative AI Engineer | Data Scientist | ML Researcher</p>
+      <a href="#about" class="btn">Learn More</a>
+    </div>
+  </section>
 
-    <!-- Video Introduction Section -->
-    <section id="video-intro">
-      <div class="container">
-        <h2>Video Introduction</h2>
-        <div class="video-container">
-          <!-- Replace VIDEO_ID with your YouTube video ID -->
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="Video Introduction" frameborder="0" allowfullscreen></iframe>
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="content">
+        <div class="profile-pic">
+          <img src="profile.jpg" alt="Nishant Singh">
+        </div>
+        <div class="text">
+          <p>
+            I am a dedicated Generative AI Engineer and Data Scientist experienced in designing, developing, and deploying cutting-edge machine learning models. I specialize in turning complex ideas into practical solutions.
+          </p>
+          <p>
+            My passion for innovation drives me to continuously explore the latest advancements in technology.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about">
-      <div class="container">
-        <h2>About Me</h2>
-        <p>
-          I am a Generative AI Engineer and Data Scientist with hands-on experience designing and deploying large-scale language models. Proficient with LangChain, LangGraph, Hugging Face, and more, I build end-to-end ML solutions—from data ingestion to production.
-        </p>
-      </div>
-    </section>
-
-    <!-- Skills & Technologies Section -->
-    <section id="skills">
-      <div class="container">
-        <h2>Skills & Technologies</h2>
-        <ul class="skills-list">
-          <li>Python</li>
-          <li>Machine Learning</li>
-          <li>Deep Learning</li>
-          <li>Generative AI</li>
-          <li>LangChain</li>
-          <li>Hugging Face</li>
-          <!-- Add more as needed -->
-        </ul>
-        <!-- Example of a progress bar for a skill -->
-        <div class="skill">
-          <span>Python</span>
-          <div class="progress">
-            <div class="progress-bar" style="width: 90%;"></div>
-          </div>
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2>Skills & Technologies</h2>
+      <div class="skill">
+        <h3>Python</h3>
+        <div class="progress">
+          <div class="progress-bar" data-progress="90%"></div>
         </div>
       </div>
-    </section>
-
-    <!-- Resume Download Section -->
-    <section id="resume">
-      <div class="container">
-        <h2>Download My Resume</h2>
-        <!-- Replace "resume.pdf" with the correct path to your PDF file -->
-        <a href="resume.pdf" download class="btn">Download Resume</a>
+      <div class="skill">
+        <h3>Machine Learning</h3>
+        <div class="progress">
+          <div class="progress-bar" data-progress="80%"></div>
+        </div>
       </div>
-    </section>
+      <div class="skill">
+        <h3>Deep Learning</h3>
+        <div class="progress">
+          <div class="progress-bar" data-progress="75%"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
-      <div class="container">
-        <h2>Experience</h2>
-        <article class="card">
+  <!-- Experience Section (Timeline) -->
+  <section id="experience">
+    <div class="container">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
           <h3>Graduate Research Assistant</h3>
-          <h4>DePaul University | 11/2024 - Present | Chicago, IL</h4>
-          <ul>
-            <li>Developing innovative RNN gating mechanisms for NLP tasks.</li>
-            <li>Implementing robust ML pipelines using LangChain.</li>
-            <li>Collaborating on generative AI research for top-tier conferences.</li>
-          </ul>
-        </article>
-        <article class="card">
+          <p>DePaul University | 11/2024 - Present</p>
+          <p>Developing advanced ML pipelines and RNN gating mechanisms for generative AI research.</p>
+        </div>
+        <div class="timeline-item">
           <h3>Data Analyst Intern</h3>
-          <h4>Global Shala Education Pvt. Ltd. | 01/2023 - 02/2023 | Gurugram, India</h4>
-          <ul>
-            <li>Designed dynamic dashboards to visualize key metrics.</li>
-            <li>Identified process inefficiencies, reducing ad spend by 15%.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-      <div class="container">
-        <h2>Projects</h2>
-        <!-- Repeat or modify project cards as needed -->
-        <article class="card project-card">
-          <h3>Agentic AI Job Application Assistant</h3>
-          <p>Generates ATS-friendly resumes, cover letters, and emails using GPT-based LLMs.</p>
-          <div class="project-links">
-            <a href="https://ai-resume-assistantt.streamlit.app/" target="_blank" rel="noopener">Live App</a>
-            <a href="https://github.com/nishantsingh-ds/AI-Resume-Assistant" target="_blank" rel="noopener">GitHub Repo</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Blog & Articles Section -->
-    <section id="blog">
-      <div class="container">
-        <h2>Blog & Articles</h2>
-        <article class="blog-post">
-          <h3>Exploring Generative AI</h3>
-          <p>A deep dive into the latest trends in generative models and how they’re transforming industries.</p>
-          <a href="blog-post-1.html" class="btn">Read More</a>
-        </article>
-        <article class="blog-post">
-          <h3>Building End-to-End ML Pipelines</h3>
-          <p>An overview of my approach to developing scalable machine learning workflows.</p>
-          <a href="blog-post-2.html" class="btn">Read More</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-      <div class="container">
-        <h2>Testimonials</h2>
-        <blockquote>
-          <p>"Nishant is an exceptional engineer with a knack for solving complex problems. His work is truly transformative."</p>
-          <cite>- Alex Johnson, Client</cite>
-        </blockquote>
-        <blockquote>
-          <p>"Working with Nishant has been a game-changer for our project. His expertise in ML and AI is outstanding."</p>
-          <cite>- Maria Lopez, Colleague</cite>
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- Certifications & Awards Section -->
-    <section id="certifications">
-      <div class="container">
-        <h2>Certifications & Awards</h2>
-        <ul>
-          <li>Certified Machine Learning Specialist – Tech Institute, 2023</li>
-          <li>Best Research Paper Award – International AI Conference, 2022</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Interactive Demos Section -->
-    <section id="demos">
-      <div class="container">
-        <h2>Interactive Demos</h2>
-        <div class="demo">
-          <h3>AI Resume Assistant</h3>
-          <a href="https://ai-resume-assistantt.streamlit.app/" target="_blank" rel="noopener" class="btn">View Demo</a>
-        </div>
-        <div class="demo">
-          <h3>Research Paper Summarizer</h3>
-          <a href="https://research-paper-summarizer-wj3rhzxeahmxdkqfbpsn7q.streamlit.app/" target="_blank" rel="noopener" class="btn">View Demo</a>
+          <p>Global Shala Education Pvt. Ltd. | 01/2023 - 02/2023</p>
+          <p>Designed interactive dashboards to provide actionable insights from data.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact Form Section -->
-    <section id="contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <form id="contact-form" action="mailto:nishantsinghns.mail@gmail.com" method="post" enctype="text/plain">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-
-          <button type="submit" class="btn">Send Message</button>
-        </form>
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="project-card">
+        <h3>Agentic AI Job Application Assistant</h3>
+        <p>Generates ATS-friendly resumes and cover letters using GPT-based models.</p>
+        <a href="#" class="btn">View Project</a>
       </div>
-    </section>
-  </main>
+      <div class="project-card">
+        <h3>Research Paper Summarizer</h3>
+        <p>An interactive tool for summarizing and analyzing research papers.</p>
+        <a href="#" class="btn">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form id="contact-form" action="mailto:nishantsingh@example.com" method="post" enctype="text/plain">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+  
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+  
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+  
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
@@ -439,19 +399,44 @@
     </div>
   </footer>
 
-  <!-- Dark Mode Toggle Script -->
+  <!-- JavaScript for Interactivity -->
   <script>
-    const toggleButton = document.getElementById('dark-mode-toggle');
-    toggleButton.addEventListener('click', () => {
+    // Mobile menu toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+    mobileMenu.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    darkModeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
-      // Optionally change the button text
-      toggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+      darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    });
+
+    // Animate progress bars when in view
+    const progressBars = document.querySelectorAll('.progress-bar');
+    const animateProgressBars = () => {
+      progressBars.forEach(bar => {
+        const progress = bar.getAttribute('data-progress');
+        bar.style.width = progress;
+      });
+    };
+
+    // Use IntersectionObserver for animating skills
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateProgressBars();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    progressBars.forEach(bar => {
+      observer.observe(bar);
     });
   </script>
-
-  <!-- External Scripts (if any) -->
-  <script src="particles.js" defer></script>
-  <script src="app.js" defer></script>
-  <script src="script.js" defer></script>
 </body>
 </html>
