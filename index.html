@@ -23,281 +23,433 @@
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Inline Color Customizations -->
+  <!-- Inline Styles for Demo Purposes -->
   <style>
-    /* Overall Body Style */
+    /* Base Styles */
     body {
       background-color: #f7f7f7;
       color: #333;
       font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-    
-    /* Navbar Styling */
-    .navbar {
-      background-color: #6200ea; /* Primary purple */
-      color: #fff;
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 0;
     }
-    .navbar .logo {
-      font-weight: 700;
-      color: #fff;
+    h1, h2, h3, h4, p {
+      margin: 0 0 20px;
     }
-    .navbar .nav-links li a {
-      color: #fff;
+    a {
+      text-decoration: none;
     }
-    .navbar .nav-links li a:hover,
-    .navbar .nav-links li a.active {
-      color: #ffeb3b; /* Yellow highlight */
-    }
-    .menu-icon {
-      color: #fff;
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-    }
-    
-    /* Button Styling */
     .btn {
       background-color: #6200ea;
       color: #fff;
       padding: 10px 20px;
-      text-decoration: none;
       border-radius: 4px;
       transition: background-color 0.3s ease;
+      display: inline-block;
+      margin-top: 10px;
     }
     .btn:hover {
       background-color: #7e3ff2;
     }
-    
-    /* Section Titles */
-    .section-title {
+    /* Navbar */
+    .navbar {
+      background-color: #6200ea;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 10%;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links li a {
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+    .nav-links li a:hover {
+      color: #ffeb3b;
+    }
+    /* Dark Mode Toggle Button */
+    #dark-mode-toggle {
+      background: none;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    /* Home Section */
+    .home-section {
+      text-align: center;
+      padding: 100px 0;
+    }
+    .home-section .highlight {
       color: #6200ea;
     }
-    
-    /* Project Card Hover Effect */
-    .card:hover {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Video Introduction */
+    #video-intro {
+      background-color: #eaeaea;
+      padding: 60px 0;
+      text-align: center;
     }
-    
-    /* Footer Styling */
-    .footer {
+    .video-container {
+      max-width: 800px;
+      margin: auto;
+    }
+    /* Skills Section */
+    #skills {
+      background-color: #fff;
+      padding: 60px 0;
+    }
+    .skills-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .skills-list li {
+      background-color: #6200ea;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+    .skill {
+      margin: 10px 0;
+    }
+    .progress {
+      background-color: #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 10px;
+    }
+    .progress-bar {
+      height: 100%;
+      background-color: #6200ea;
+    }
+    /* Resume Download Section */
+    #resume {
+      background-color: #f0f0f0;
+      padding: 60px 0;
+      text-align: center;
+    }
+    /* Blog Section */
+    #blog {
+      padding: 60px 0;
+      background-color: #fff;
+    }
+    .blog-post {
+      margin-bottom: 40px;
+    }
+    /* Testimonials Section */
+    #testimonials {
+      background-color: #eaeaea;
+      padding: 60px 0;
+      text-align: center;
+    }
+    blockquote {
+      font-style: italic;
+      margin: 20px auto;
+      max-width: 800px;
+    }
+    cite {
+      display: block;
+      margin-top: 10px;
+      color: #555;
+    }
+    /* Certifications Section */
+    #certifications {
+      padding: 60px 0;
+      background-color: #fff;
+    }
+    /* Demos Section */
+    #demos {
+      background-color: #f0f0f0;
+      padding: 60px 0;
+    }
+    .demo {
+      margin-bottom: 30px;
+    }
+    /* Contact Form */
+    #contact form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    #contact label {
+      font-weight: bold;
+    }
+    #contact input, #contact textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    /* Footer */
+    footer {
       background-color: #6200ea;
       color: #fff;
       text-align: center;
       padding: 20px 0;
     }
-    
-    /* Link Styling */
-    a {
-      text-decoration: none;
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    body.dark-mode a,
+    body.dark-mode .nav-links li a {
+      color: #e0e0e0;
+    }
+    body.dark-mode .navbar {
+      background-color: #1e1e1e;
+    }
+    body.dark-mode .btn {
+      background-color: #1e1e1e;
+    }
+    body.dark-mode footer {
+      background-color: #1e1e1e;
     }
   </style>
 </head>
 <body>
-  <!-- Particles Background -->
+  <!-- Particles Background (if applicable) -->
   <div id="particles-js"></div>
 
   <!-- Header / Navigation -->
   <header>
     <nav class="navbar" aria-label="Main Navigation">
-      <div class="nav-container">
-        <div class="logo">Nishant Singh</div>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#home" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button class="menu-icon" id="menuIcon" aria-label="Toggle Navigation">&#9776;</button>
-      </div>
+      <div class="logo">Nishant Singh</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#video-intro">Intro</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#demos">Demos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">Dark Mode</button>
     </nav>
   </header>
 
   <main>
     <!-- Home Section -->
     <section id="home" class="home-section">
-      <div class="home-content">
+      <div class="container">
         <h1>Hello, I'm <span class="highlight">Nishant Singh</span></h1>
         <p>Generative AI Engineer | Data Scientist | ML Researcher</p>
         <a href="#about" class="btn">Explore More</a>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
+    <!-- Video Introduction Section -->
+    <section id="video-intro">
       <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-          <p>
-            I am a <strong>Generative AI Engineer</strong> and <strong>Data Scientist</strong> with hands-on experience in designing and deploying large-scale language models. Proficient in advanced frameworks like <strong>LangChain</strong>, <strong>LangGraph</strong>, and <strong>Hugging Face</strong>, I specialize in <em>Retrieval-Augmented Generation (RAG)</em>, custom pipeline orchestration, and building end-to-end machine learning solutions from data ingestion to production deployment.
-          </p>
-          <p>
-            My expertise spans transformer architectures, LLM fine-tuning, and advanced MLOps practices for seamless model lifecycle management. Currently, I am refining RNN-based gating mechanisms at <strong>DePaul University</strong>, focusing on publishing breakthrough research in top-tier conferences. I am passionate about translating cutting-edge research into scalable, real-world solutions in the evolving GenAI space.
-          </p>
+        <h2>Video Introduction</h2>
+        <div class="video-container">
+          <!-- Replace VIDEO_ID with your YouTube video ID -->
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="Video Introduction" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section alt-bg">
+    <!-- About Section -->
+    <section id="about">
       <div class="container">
-        <h2 class="section-title">Experience</h2>
+        <h2>About Me</h2>
+        <p>
+          I am a Generative AI Engineer and Data Scientist with hands-on experience designing and deploying large-scale language models. Proficient with LangChain, LangGraph, Hugging Face, and more, I build end-to-end ML solutions—from data ingestion to production.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills & Technologies Section -->
+    <section id="skills">
+      <div class="container">
+        <h2>Skills & Technologies</h2>
+        <ul class="skills-list">
+          <li>Python</li>
+          <li>Machine Learning</li>
+          <li>Deep Learning</li>
+          <li>Generative AI</li>
+          <li>LangChain</li>
+          <li>Hugging Face</li>
+          <!-- Add more as needed -->
+        </ul>
+        <!-- Example of a progress bar for a skill -->
+        <div class="skill">
+          <span>Python</span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 90%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Download Section -->
+    <section id="resume">
+      <div class="container">
+        <h2>Download My Resume</h2>
+        <!-- Replace "resume.pdf" with the correct path to your PDF file -->
+        <a href="resume.pdf" download class="btn">Download Resume</a>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <div class="container">
+        <h2>Experience</h2>
         <article class="card">
           <h3>Graduate Research Assistant</h3>
           <h4>DePaul University | 11/2024 - Present | Chicago, IL</h4>
           <ul>
-            <li>Developing innovative RNN gating mechanisms to enhance sequence modeling for NLP tasks such as sentiment analysis and translation.</li>
-            <li>Implementing robust end-to-end ML pipelines using <strong>LangChain</strong> for efficient data retrieval, model training, and inference.</li>
-            <li>Collaborating on advanced generative AI research aimed at NeurIPS, ICLR, and other top-tier conferences.</li>
-            <li>Optimizing state-of-the-art language models with Python, PyTorch, and Hugging Face, ensuring high performance and scalability.</li>
+            <li>Developing innovative RNN gating mechanisms for NLP tasks.</li>
+            <li>Implementing robust ML pipelines using LangChain.</li>
+            <li>Collaborating on generative AI research for top-tier conferences.</li>
           </ul>
         </article>
-
         <article class="card">
           <h3>Data Analyst Intern</h3>
           <h4>Global Shala Education Pvt. Ltd. | 01/2023 - 02/2023 | Gurugram, India</h4>
           <ul>
-            <li>Designed dynamic dashboards in R/Tableau to visualize key performance metrics, driving actionable insights.</li>
-            <li>Identified process inefficiencies that reduced ad spend by 15% and increased ROI by 20%.</li>
-            <li>Optimized marketing workflows by integrating advanced data analytics and visualization techniques.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Machine Learning & Data Analysis Intern</h3>
-          <h4>Feynn Labs Services | 11/2021 - 01/2022 | Assam, India</h4>
-          <ul>
-            <li>Conducted comprehensive ML market segmentation, enhancing candidate targeting and boosting success rates by 30%.</li>
-            <li>Engineered predictive models that improved forecasting accuracy by 20% and streamlined business decision-making.</li>
-            <li>Developed interactive dashboards to identify high-value opportunities and guide strategic initiatives.</li>
+            <li>Designed dynamic dashboards to visualize key metrics.</li>
+            <li>Identified process inefficiencies, reducing ad spend by 15%.</li>
           </ul>
         </article>
       </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
+    <section id="projects">
       <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-          <article class="card project-card">
-            <h3>Agentic AI Job Application Assistant</h3>
-            <p>Generates ATS-friendly resumes, cover letters, and cold emails using GPT-based LLMs.</p>
-            <p><em>Tech Stack:</em> Python, LangChain, GPT-4, Streamlit</p>
-            <div class="project-links">
-              <a href="https://ai-resume-assistantt.streamlit.app/" target="_blank" rel="noopener">Live App</a>
-              <a href="https://github.com/nishantsingh-ds/AI-Resume-Assistant" target="_blank" rel="noopener">GitHub Repo</a>
-            </div>
-          </article>
+        <h2>Projects</h2>
+        <!-- Repeat or modify project cards as needed -->
+        <article class="card project-card">
+          <h3>Agentic AI Job Application Assistant</h3>
+          <p>Generates ATS-friendly resumes, cover letters, and emails using GPT-based LLMs.</p>
+          <div class="project-links">
+            <a href="https://ai-resume-assistantt.streamlit.app/" target="_blank" rel="noopener">Live App</a>
+            <a href="https://github.com/nishantsingh-ds/AI-Resume-Assistant" target="_blank" rel="noopener">GitHub Repo</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-          <article class="card project-card">
-            <h3>Agentic AI Research Paper Summarizer</h3>
-            <p>Interactive RAG system to query and summarize arXiv research papers.</p>
-            <p><em>Tech Stack:</em> Python, LangGraph, Hugging Face, Streamlit</p>
-            <div class="project-links">
-              <a href="https://research-paper-summarizer-wj3rhzxeahmxdkqfbpsn7q.streamlit.app/" target="_blank" rel="noopener">Live App</a>
-              <a href="#" target="_blank" rel="noopener">GitHub Repo</a>
-            </div>
-          </article>
+    <!-- Blog & Articles Section -->
+    <section id="blog">
+      <div class="container">
+        <h2>Blog & Articles</h2>
+        <article class="blog-post">
+          <h3>Exploring Generative AI</h3>
+          <p>A deep dive into the latest trends in generative models and how they’re transforming industries.</p>
+          <a href="blog-post-1.html" class="btn">Read More</a>
+        </article>
+        <article class="blog-post">
+          <h3>Building End-to-End ML Pipelines</h3>
+          <p>An overview of my approach to developing scalable machine learning workflows.</p>
+          <a href="blog-post-2.html" class="btn">Read More</a>
+        </article>
+      </div>
+    </section>
 
-          <article class="card project-card">
-            <h3>Chicken Disease Classification Pipeline</h3>
-            <p>End-to-end CNN pipeline with MLOps integration, Docker, and AWS CI/CD for deployment.</p>
-            <p><em>Tech Stack:</em> Python, TensorFlow, DVC, Docker, AWS</p>
-            <div class="project-links">
-              <a href="https://chicken-disease-classify.streamlit.app/" target="_blank" rel="noopener">Live App</a>
-              <a href="https://github.com/nishantsingh-ds/Chicken-Disease-Classification" target="_blank" rel="noopener">GitHub Repo</a>
-            </div>
-          </article>
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+      <div class="container">
+        <h2>Testimonials</h2>
+        <blockquote>
+          <p>"Nishant is an exceptional engineer with a knack for solving complex problems. His work is truly transformative."</p>
+          <cite>- Alex Johnson, Client</cite>
+        </blockquote>
+        <blockquote>
+          <p>"Working with Nishant has been a game-changer for our project. His expertise in ML and AI is outstanding."</p>
+          <cite>- Maria Lopez, Colleague</cite>
+        </blockquote>
+      </div>
+    </section>
 
-          <article class="card project-card">
-            <h3>Conversational AI (Hotel Reservation Chatbot)</h3>
-            <p>Built a hotel reservation chatbot using advanced NLP architectures (LSTM, BRNN, BERT) for context-aware responses.</p>
-            <p><em>Tech Stack:</em> Python, RNN, LSTM, BRNN, BERT, TensorFlow, Keras, Hugging Face, NLTK</p>
-            <div class="project-links">
-              <a href="https://github.com/nishantsingh-ds/CHATBOT/tree/main" target="_blank" rel="noopener">GitHub Repo</a>
-            </div>
-          </article>
+    <!-- Certifications & Awards Section -->
+    <section id="certifications">
+      <div class="container">
+        <h2>Certifications & Awards</h2>
+        <ul>
+          <li>Certified Machine Learning Specialist – Tech Institute, 2023</li>
+          <li>Best Research Paper Award – International AI Conference, 2022</li>
+        </ul>
+      </div>
+    </section>
 
-          <article class="card project-card">
-            <h3>Anime Recommendation System</h3>
-            <p>Developed a personalized recommendation engine combining PCA, clustering (K-Means, DBSCAN) and collaborative filtering for tailored suggestions.</p>
-            <p><em>Tech Stack:</em> Python, PCA, K-Means, DBSCAN, t-SNE, Collaborative Filtering</p>
-            <div class="project-links">
-              <a href="https://github.com/nishantsingh-ds/Anime-Recommendation/tree/main" target="_blank" rel="noopener">GitHub Repo</a>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <h3>Sentiment Analysis Pipeline</h3>
-            <p>Constructed a sentiment analysis pipeline leveraging web scraping and advanced text processing to drive data-based decisions.</p>
-            <p><em>Tech Stack:</em> Python, BeautifulSoup, NLTK, Text Processing</p>
-            <div class="project-links">
-              <a href="https://github.com/nishantsingh23pbt/Text-Analysis/blob/main/Text%20Analysis-checkpoint.ipynb" target="_blank" rel="noopener">GitHub Repo</a>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <h3>Employee Attrition Prediction</h3>
-            <p>Designed and implemented predictive models using ensemble techniques and advanced feature engineering to uncover key drivers of employee attrition.</p>
-            <p><em>Tech Stack:</em> Python, Random Forest, AdaBoost, Gradient Boosting, GridSearchCV</p>
-            <div class="project-links">
-              <a href="https://github.com/nishantsingh-ds/Employee-Attrition-Prediction-and-Analysis/tree/main" target="_blank" rel="noopener">GitHub Repo</a>
-            </div>
-          </article>
+    <!-- Interactive Demos Section -->
+    <section id="demos">
+      <div class="container">
+        <h2>Interactive Demos</h2>
+        <div class="demo">
+          <h3>AI Resume Assistant</h3>
+          <a href="https://ai-resume-assistantt.streamlit.app/" target="_blank" rel="noopener" class="btn">View Demo</a>
+        </div>
+        <div class="demo">
+          <h3>Research Paper Summarizer</h3>
+          <a href="https://research-paper-summarizer-wj3rhzxeahmxdkqfbpsn7q.streamlit.app/" target="_blank" rel="noopener" class="btn">View Demo</a>
         </div>
       </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="section alt-bg">
+    <!-- Contact Form Section -->
+    <section id="contact">
       <div class="container">
-        <h2 class="section-title">Education</h2>
-        <article class="card">
-          <h3>DePaul University</h3>
-          <h4>M.S. in Data Science | Expected Graduation: 05/2025</h4>
-          <p>
-            Core: Regression, Python, ML Applications, Statistical Data Analysis, Advanced ML, Deep Learning, Transfer Learning, Big Data, Cloud Data Engineering
-          </p>
-        </article>
-        <article class="card">
-          <h3>University of Delhi</h3>
-          <h4>B.Sc. in Mathematical Science | 07/2018 - 04/2021</h4>
-          <p>
-            Core: Calculus, Linear Algebra, Probability Theory, Statistical Methods, Operating Systems, Programming Algorithms
-          </p>
-        </article>
-      </div>
-    </section>
+        <h2>Contact</h2>
+        <form id="contact-form" action="mailto:nishantsinghns.mail@gmail.com" method="post" enctype="text/plain">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <p class="contact-intro">
-          Interested in discussing a project or just want to say hello? Reach out below.
-        </p>
-        <address class="contact-info">
-          <p><i class="fas fa-phone"></i> +1 (513) 972-7243</p>
-          <p><i class="fas fa-envelope"></i> <a href="mailto:nishantsinghns.mail@gmail.com">nishantsinghns.mail@gmail.com</a></p>
-          <p><i class="fab fa-linkedin"></i> <a href="http://www.linkedin.com/in/nishantsinghh" target="_blank" rel="noopener">LinkedIn</a></p>
-          <p><i class="fab fa-github"></i> <a href="https://github.com/nishantsingh-ds" target="_blank" rel="noopener">GitHub</a></p>
-          <p><i class="fab fa-kaggle"></i> <a href="https://www.kaggle.com/nishantsingh23pbt" target="_blank" rel="noopener">Kaggle</a></p>
-        </address>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer>
     <div class="container">
       <p>&copy; 2025 Nishant Singh. All Rights Reserved.</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Dark Mode Toggle Script -->
+  <script>
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      // Optionally change the button text
+      toggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    });
+  </script>
+
+  <!-- External Scripts (if any) -->
   <script src="particles.js" defer></script>
   <script src="app.js" defer></script>
   <script src="script.js" defer></script>
