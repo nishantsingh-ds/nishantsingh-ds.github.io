@@ -340,3 +340,15 @@ body.dark-mode .contact-info a:hover {
   color: var(--primary-color);
 }
 
+/* Hide the years label by default; show progress bars */
+.skill .years-label {
+  display: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* (Optional) Adjust spacing for each skill */
+.skill {
+  margin-bottom: 20px;
+}
+
