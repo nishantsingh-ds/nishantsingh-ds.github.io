@@ -478,6 +478,25 @@ I'm Nishant Singh – a Data Scientist and Machine Learning Engineer pursuing an
     progressBars.forEach(bar => {
       observer.observe(bar);
     });
+
+  const toggleSkillView = document.getElementById('toggle-skill-view');
+  toggleSkillView.addEventListener('click', () => {
+    const skills = document.querySelectorAll('.skill');
+    skills.forEach(skill => {
+      const progress = skill.querySelector('.progress');
+      const label = skill.querySelector('.years-label');
+      // If progress bar is visible, hide it and show the years label; otherwise reverse
+      if (progress.style.display === 'none') {
+        progress.style.display = 'block';
+        label.style.display = 'none';
+        toggleSkillView.textContent = 'Show Years';
+      } else {
+        progress.style.display = 'none';
+        label.style.display = 'inline';
+        toggleSkillView.textContent = 'Show Percentage';
+      }
+    });
+  });
   </script>
 </body>
 </html>
