@@ -352,3 +352,19 @@ body.dark-mode .contact-info a:hover {
   margin-bottom: 20px;
 }
 
+.contact-icons {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-icons a {
+  margin: 0 10px;
+  font-size: 2rem;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.contact-icons a:hover {
+  color: var(--secondary-color);
+}
+
