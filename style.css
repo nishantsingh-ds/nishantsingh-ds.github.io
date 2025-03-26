@@ -290,7 +290,7 @@ body {
 /* Dark Mode Styles */
 body.dark-mode {
   background: #121212;
-  color: #f5f5f5;
+  color: #ffffff; /* Use pure white for maximum contrast */
 }
 
 body.dark-mode .navbar {
@@ -302,7 +302,7 @@ body.dark-mode .logo {
 }
 
 body.dark-mode .nav-links a {
-  color: #f5f5f5;
+  color: #ffffff;
 }
 
 body.dark-mode .nav-links a:hover,
@@ -312,24 +312,34 @@ body.dark-mode .nav-links a.active {
 
 body.dark-mode .home-section {
   background: linear-gradient(135deg, #1e1e1e, #333);
-  color: #fff;
+  color: #ffffff;
 }
 
 body.dark-mode .btn {
   background: #1e1e1e;
-  color: #fff;
+  color: #ffffff;
 }
 
 body.dark-mode .card {
   background: #1e1e1e;
-  color: #f5f5f5;
+  color: #ffffff;
   box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .footer {
   background: #1e1e1e;
-  color: #ccc;
+  color: #ffffff;
 }
+
+/* Adjust links in the contact section if needed */
+body.dark-mode .contact-info a {
+  color: #ffffff;
+}
+
+body.dark-mode .contact-info a:hover {
+  color: var(--primary-color);
+}
+
 
 /* Adjust links in the contact section if needed */
 body.dark-mode .contact-info a {
