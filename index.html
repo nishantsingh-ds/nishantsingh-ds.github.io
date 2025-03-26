@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Interactive Portfolio - Nishant Singh</title>
   <style>
     /* Reset & Base Styles */
@@ -104,7 +104,7 @@
       flex-wrap: wrap;
       align-items: center;
     }
-    #about .profile-pic, 
+    #about .profile-pic,
     #about .text {
       flex: 1;
       padding: 20px;
@@ -112,6 +112,10 @@
     #about .profile-pic img {
       width: 100%;
       border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+    #about .profile-pic img:hover {
+      transform: scale(1.05);
     }
     /* Skills Section */
     #skills {
@@ -134,6 +138,11 @@
       height: 100%;
       width: 0;
       transition: width 1s ease-in-out;
+    }
+    .years-label {
+      display: none;
+      font-size: 1rem;
+      font-weight: 600;
     }
     /* Experience Section (Timeline) */
     #experience {
@@ -159,6 +168,13 @@
       background: #f7f7f7;
       border-radius: 4px;
       margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .timeline-item:nth-child(odd) {
       left: 0;
@@ -186,20 +202,48 @@
     #projects {
       background: #eaeaea;
     }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
     .project-card {
       background: #fff;
       border-radius: 4px;
       padding: 20px;
-      margin-bottom: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .project-links a {
+      display: inline-block;
+      margin-right: 10px;
+      color: #6200ea;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .project-links a:hover {
+      color: #00b4d8;
     }
     /* Contact Section */
     #contact {
       background: #fff;
+    }
+    .contact-icons {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .contact-icons a {
+      margin: 0 10px;
+      font-size: 2rem;
+      color: #6200ea;
+      transition: color 0.3s ease;
+    }
+    .contact-icons a:hover {
+      color: #00b4d8;
     }
     #contact form {
       max-width: 600px;
@@ -208,10 +252,18 @@
       flex-direction: column;
       gap: 15px;
     }
-    #contact input, #contact textarea {
+    #contact input,
+    #contact textarea {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
+    }
+    /* Footer */
+    footer {
+      background: #6200ea;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
     }
     /* Dark Mode Styles */
     body.dark-mode {
@@ -227,12 +279,21 @@
     body.dark-mode .progress .progress-bar {
       background: #1e1e1e;
     }
-    /* Footer */
-    footer {
-      background: #6200ea;
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
+    body.dark-mode .project-links a {
+      color: #e0e0e0;
+    }
+    body.dark-mode .project-links a:hover {
+      color: var(--primary-color);
+    }
+    body.dark-mode .contact-icons a {
+      color: #e0e0e0;
+    }
+    body.dark-mode .contact-icons a:hover {
+      color: var(--primary-color);
+    }
+    body.dark-mode footer {
+      background: #1e1e1e;
+      color: #ccc;
     }
     /* Responsive Styles */
     @media (max-width: 768px) {
@@ -263,7 +324,26 @@
         margin-left: 40px;
       }
     }
+    /* Back-to-Top Button */
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #6200ea;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+      display: none;
+      cursor: pointer;
+      z-index: 1000;
+      transition: opacity 0.3s ease;
+    }
   </style>
+  <!-- Load Font Awesome -->
+  <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <!-- Header & Navigation -->
@@ -298,12 +378,11 @@
       <h2>About Me</h2>
       <div class="content">
         <div class="profile-pic">
-          <img src="images/my.jpg" alt="Nishant Singh">
+          <img src="images/my.jpg" alt="Nishant Singh" />
         </div>
         <div class="text">
           <p>
-I'm Nishant Singh – a Data Scientist and Machine Learning Engineer pursuing an MS in Data Science at DePaul University. I build advanced AI systems and scalable solutions, specializing in innovative RNN architectures for language modeling, sentiment analysis, and translation. With experience as a Data Analyst and ML Engineer, I've delivered projects ranging from AI chatbots to research summarizers. Proficient in Python, PyTorch, TensorFlow, AWS, and Docker, I'm passionate about transforming complex data into actionable insights and driving continuous innovation.
-
+            I'm Nishant Singh – a Data Scientist and Machine Learning Engineer pursuing an MS in Data Science at DePaul University. I build advanced AI systems and scalable solutions, specializing in innovative RNN architectures for language modeling, sentiment analysis, and translation. With experience as a Data Analyst and ML Engineer, I've delivered projects ranging from AI chatbots to research summarizers. Proficient in Python, PyTorch, TensorFlow, AWS, and Docker, I'm passionate about transforming complex data into actionable insights and driving continuous innovation.
           </p>
         </div>
       </div>
@@ -311,254 +390,253 @@ I'm Nishant Singh – a Data Scientist and Machine Learning Engineer pursuing an
   </section>
 
   <!-- Skills Section -->
- <section id="skills">
-  <div class="container">
-    <h2>Skills & Technologies</h2>
-    <!-- Toggle button to switch between percentage view and years view -->
-    <button id="toggle-skill-view" class="btn">Show Years</button>
-    <div class="skills-list">
-      <div class="skill">
-        <h3>Python</h3>
-        <span class="years-label">3yr</span>
-        <div class="progress">
-          <div class="progress-bar" style="width: 100%;"></div>
+  <section id="skills">
+    <div class="container">
+      <h2>Skills & Technologies</h2>
+      <!-- Toggle button for skill view -->
+      <button id="toggle-skill-view" class="btn">Show Years</button>
+      <div class="skills-list">
+        <div class="skill">
+          <h3>Python</h3>
+          <span class="years-label">3yr</span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 100%;" data-progress="100%"></div>
+          </div>
         </div>
-      </div>
-      <div class="skill">
-        <h3>R</h3>
-        <span class="years-label">1yr</span>
-        <div class="progress">
-          <div class="progress-bar" style="width: 33%;"></div>
+        <div class="skill">
+          <h3>R</h3>
+          <span class="years-label">1yr</span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 33%;" data-progress="33%"></div>
+          </div>
         </div>
-      </div>
-      <div class="skill">
-        <h3>SQL</h3>
-        <span class="years-label">1yr</span>
-        <div class="progress">
-          <div class="progress-bar" style="width: 33%;"></div>
+        <div class="skill">
+          <h3>SQL</h3>
+          <span class="years-label">1yr</span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 33%;" data-progress="33%"></div>
+          </div>
         </div>
-      </div>
-      <div class="skill">
-        <h3>AWS</h3>
-        <span class="years-label">3mo</span>
-        <div class="progress">
-          <div class="progress-bar" style="width: 8%;"></div>
+        <div class="skill">
+          <h3>AWS</h3>
+          <span class="years-label">3mo</span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 8%;" data-progress="8%"></div>
+          </div>
         </div>
-      </div>
-      <div class="skill">
-        <h3>Machine Learning</h3>
-        <span class="years-label">2yr</span>
-        <div class="progress">
-          <div class="progress-bar" style="width: 67%;"></div>
+        <div class="skill">
+          <h3>Machine Learning</h3>
+          <span class="years-label">2yr</span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 67%;" data-progress="67%"></div>
+          </div>
         </div>
-      </div>
-      <div class="skill">
-        <h3>Deep Learning</h3>
-        <span class="years-label">1yr</span>
-        <div class="progress">
-          <div class="progress-bar" style="width: 33%;"></div>
+        <div class="skill">
+          <h3>Deep Learning</h3>
+          <span class="years-label">1yr</span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 33%;" data-progress="33%"></div>
+          </div>
         </div>
-      </div>
-      <div class="skill">
-        <h3>GenAI</h3>
-        <span class="years-label">1yr</span>
-        <div class="progress">
-          <div class="progress-bar" style="width: 33%;"></div>
+        <div class="skill">
+          <h3>GenAI</h3>
+          <span class="years-label">1yr</span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 33%;" data-progress="33%"></div>
+          </div>
         </div>
-      </div>
-      <div class="skill">
-        <h3>Agentic AI</h3>
-        <span class="years-label">2mo</span>
-        <div class="progress">
-          <div class="progress-bar" style="width: 6%;"></div>
+        <div class="skill">
+          <h3>Agentic AI</h3>
+          <span class="years-label">2mo</span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 6%;" data-progress="6%"></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Experience Section (Timeline) -->
-<section id="experience">
-  <div class="container">
-    <h2>Experience</h2>
-    <div class="timeline">
-      <!-- DePaul University -->
-      <div class="timeline-item">
-        <h3>Graduate Research Assistant</h3>
-        <h4>DePaul University, Chicago, IL | Nov 2024 – Present</h4>
-        <ul>
-          <li><strong>Model Optimization:</strong> Developed efficient transformer and RNN-based models using PyTorch, optimizing inference speed, reducing computational latency, and surpassing GRU/LSTM benchmarks on language modeling tasks.</li>
-          <li><strong>Experimentation and Fine-Tuning:</strong> Enhanced model performance and context-awareness using gating mechanisms and fine-tuning for sentiment analysis and translation.</li>
-          <li><strong>Data Processing:</strong> Preprocessed datasets and benchmarked performance to optimize outcomes, incorporating dimensionality adjustments and padding techniques.</li>
-          <li><strong>Communication:</strong> Presented research findings in technical reports and presentations, contributing to projects aimed at top-tier conferences like NeurIPS and ICLR.</li>
-        </ul>
-      </div>
-      <!-- Global Shala Education -->
-      <div class="timeline-item">
-        <h3>Data Analyst Intern</h3>
-        <h4>Global Shala Education, Gurugram, India | Jan 2023 – June 2023</h4>
-        <ul>
-          <li><strong>Data Visualization:</strong> Created real-time dashboards using Tableau and R for ad metrics analysis.</li>
-          <li><strong>Optimization:</strong> Identified insights that reduced ad spend by 15% and improved campaign ROI by 20%.</li>
-          <li><strong>Collaboration:</strong> Worked cross-functionally to drive strategic campaign improvements.</li>
-        </ul>
-      </div>
-      <!-- Feynn Labs Services -->
-      <div class="timeline-item">
-        <h3>Machine Learning and Data Analysis Intern</h3>
-        <h4>Feynn Labs Services, Assam, India | Nov 2021 – June 2022</h4>
-        <ul>
-          <li><strong>Market Analysis:</strong> Conducted segmentation analysis of the ML job market in India, improving job application success rates by 30% through targeted strategies.</li>
-          <li><strong>Predictive Modeling:</strong> Developed predictive models that increased forecasting accuracy by 20% to align market predictions with actionable outcomes.</li>
-          <li><strong>Dashboard Development:</strong> Built interactive dashboards and visualizations to effectively communicate findings and identify high-value opportunities.</li>
-        </ul>
-      </div>
-      <!-- Suvidha Foundation -->
-      <div class="timeline-item">
-        <h3>Machine Learning Intern</h3>
-        <h4>Suvidha Foundation, Nagpur, India | Oct 2021 – Nov 2021</h4>
-        <ul>
-          <li><strong>CNN-based Image Classification:</strong> Built and optimized a CNN pipeline to classify 35,000+ flower images, boosting accuracy from 70% to 85% via hyperparameter tuning.</li>
-          <li><strong>Inference Optimization:</strong> Enhanced inference performance by refining model architectures, training processes, and data augmentation techniques.</li>
-          <li><strong>Actionable Insights:</strong> Delivered insights from model predictions to guide marketing and product strategy decisions.</li>
-        </ul>
+  <section id="experience">
+    <div class="container">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <!-- DePaul University -->
+        <div class="timeline-item">
+          <h3>Graduate Research Assistant</h3>
+          <h4>DePaul University, Chicago, IL | Nov 2024 – Present</h4>
+          <ul>
+            <li><strong>Model Optimization:</strong> Developed efficient transformer and RNN-based models using PyTorch, optimizing inference speed and reducing latency.</li>
+            <li><strong>Fine-Tuning:</strong> Enhanced performance using gating mechanisms for sentiment analysis and translation.</li>
+            <li><strong>Data Processing:</strong> Preprocessed datasets with dimensionality adjustments and padding techniques.</li>
+            <li><strong>Communication:</strong> Presented research in technical reports and presentations for conferences like NeurIPS and ICLR.</li>
+          </ul>
+        </div>
+        <!-- Global Shala Education -->
+        <div class="timeline-item">
+          <h3>Data Analyst Intern</h3>
+          <h4>Global Shala Education, Gurugram, India | Jan 2023 – June 2023</h4>
+          <ul>
+            <li><strong>Data Visualization:</strong> Created real-time dashboards using Tableau and R for ad metrics.</li>
+            <li><strong>Optimization:</strong> Reduced ad spend by 15% and improved campaign ROI by 20%.</li>
+            <li><strong>Collaboration:</strong> Worked cross-functionally to drive campaign improvements.</li>
+          </ul>
+        </div>
+        <!-- Feynn Labs Services -->
+        <div class="timeline-item">
+          <h3>Machine Learning & Data Analysis Intern</h3>
+          <h4>Feynn Labs Services, Assam, India | Nov 2021 – June 2022</h4>
+          <ul>
+            <li><strong>Market Analysis:</strong> Improved job application success rates by 30% through targeted segmentation analysis.</li>
+            <li><strong>Predictive Modeling:</strong> Increased forecasting accuracy by 20% with tailored predictive models.</li>
+            <li><strong>Dashboard Development:</strong> Built interactive dashboards to communicate findings effectively.</li>
+          </ul>
+        </div>
+        <!-- Suvidha Foundation -->
+        <div class="timeline-item">
+          <h3>Machine Learning Intern</h3>
+          <h4>Suvidha Foundation, Nagpur, India | Oct 2021 – Nov 2021</h4>
+          <ul>
+            <li><strong>CNN-based Classification:</strong> Boosted flower image classification accuracy from 70% to 85% via hyperparameter tuning.</li>
+            <li><strong>Inference Optimization:</strong> Refined architectures and training for better model performance.</li>
+            <li><strong>Actionable Insights:</strong> Delivered insights to guide marketing and product strategy.</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Projects Section -->
-<section id="projects">
-  <div class="container">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <!-- Project 1 -->
-      <div class="project-card">
-        <h3>Agentic AI Job Application Assistant</h3>
-        <p>Automated ATS-friendly workflow using Python, LangGraph, LangChain, and ChatOpenAI (GPT-4o).</p>
-        <p><em>Technologies:</em> Python, LangGraph, LangChain, ChatOpenAI (GPT-4o)</p>
-        <div class="project-links">
-          <a href="https://github.com/nishantsingh-ds/AI-Resume-Assistant" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://ai-resume-assistant.streamlit.app/" target="_blank" rel="noopener">Live App</a>
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <h3>Agentic AI Job Application Assistant</h3>
+          <p>Automated ATS-friendly workflow using Python, LangGraph, LangChain, and ChatOpenAI (GPT-4o).</p>
+          <p><em>Technologies:</em> Python, LangGraph, LangChain, ChatOpenAI (GPT-4o)</p>
+          <div class="project-links">
+            <a href="https://github.com/nishantsingh-ds/AI-Resume-Assistant" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://ai-resume-assistant.streamlit.app/" target="_blank" rel="noopener">Live App</a>
+          </div>
         </div>
-      </div>
-      <!-- Project 2 -->
-      <div class="project-card">
-        <h3>Agentic AI Research Paper Summarizer</h3>
-        <p>Interactive Streamlit RAG system for summarizing arXiv papers using LangChain, FAISS, and ChatOpenAI (GPT-4o).</p>
-        <p><em>Technologies:</em> Streamlit, LangChain, FAISS, ChatOpenAI (GPT-4o)</p>
-        <div class="project-links">
-          <a href="https://github.com/nishantsingh-ds/AI-Research-Paper-Summarizer" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://research-paper-summarizer.streamlit.app/" target="_blank" rel="noopener">Live App</a>
+        <!-- Project 2 -->
+        <div class="project-card">
+          <h3>Agentic AI Research Paper Summarizer</h3>
+          <p>Interactive Streamlit RAG system for summarizing arXiv papers using LangChain, FAISS, and ChatOpenAI (GPT-4o).</p>
+          <p><em>Technologies:</em> Streamlit, LangChain, FAISS, ChatOpenAI (GPT-4o)</p>
+          <div class="project-links">
+            <a href="https://github.com/nishantsingh-ds/AI-Research-Paper-Summarizer" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://research-paper-summarizer.streamlit.app/" target="_blank" rel="noopener">Live App</a>
+          </div>
         </div>
-      </div>
-      <!-- Project 3 -->
-      <div class="project-card">
-        <h3>Chicken Disease Classification Pipeline</h3>
-        <p>End-to-end CNN pipeline for chicken disease detection using DVC, Docker, AWS CI/CD, and MLOps.</p>
-        <p><em>Technologies:</em> CNN, DVC, Docker, AWS, CI/CD, MLOps</p>
-        <div class="project-links">
-          <a href="https://github.com/nishantsingh-ds/Chicken-Disease-Classification" target="_blank" rel="noopener">GitHub</a>
+        <!-- Project 3 -->
+        <div class="project-card">
+          <h3>Chicken Disease Classification Pipeline</h3>
+          <p>End-to-end CNN pipeline for chicken disease detection using DVC, Docker, AWS CI/CD, and MLOps.</p>
+          <p><em>Technologies:</em> CNN, DVC, Docker, AWS, CI/CD, MLOps</p>
+          <div class="project-links">
+            <a href="https://github.com/nishantsingh-ds/Chicken-Disease-Classification" target="_blank" rel="noopener">GitHub</a>
+          </div>
         </div>
-      </div>
-      <!-- Project 4 -->
-      <div class="project-card">
-        <h3>AI Chatbot</h3>
-        <p>Hotel reservation chatbot powered by LSTM, BRNN, BERT, and HuggingFace Transformers.</p>
-        <p><em>Technologies:</em> LSTM, BRNN, BERT, HuggingFace Transformers</p>
-        <div class="project-links">
-          <a href="https://github.com/nishantsingh-ds/AI-Chatbot" target="_blank" rel="noopener">GitHub</a>
+        <!-- Project 4 -->
+        <div class="project-card">
+          <h3>AI Chatbot</h3>
+          <p>Hotel reservation chatbot powered by LSTM, BRNN, BERT, and HuggingFace Transformers.</p>
+          <p><em>Technologies:</em> LSTM, BRNN, BERT, HuggingFace Transformers</p>
+          <div class="project-links">
+            <a href="https://github.com/nishantsingh-ds/AI-Chatbot" target="_blank" rel="noopener">GitHub</a>
+          </div>
         </div>
-      </div>
-      <!-- Project 5 -->
-      <div class="project-card">
-        <h3>Anime Recommendation System</h3>
-        <p>Personalized anime recommendation engine using clustering and collaborative filtering with advanced preprocessing.</p>
-        <p><em>Technologies:</em> Python, K-Means, DBSCAN, PCA, t-SNE, Collaborative Filtering</p>
-        <div class="project-links">
-          <a href="https://github.com/nishantsingh-ds/Anime-Recommendation" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://anime-recommendation.streamlit.app/" target="_blank" rel="noopener">Live App</a>
+        <!-- Project 5 -->
+        <div class="project-card">
+          <h3>Anime Recommendation System</h3>
+          <p>Personalized anime recommendation engine using clustering, collaborative filtering, and advanced preprocessing.</p>
+          <p><em>Technologies:</em> Python, K-Means, DBSCAN, PCA, t-SNE, Collaborative Filtering</p>
+          <div class="project-links">
+            <a href="https://github.com/nishantsingh-ds/Anime-Recommendation" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://anime-recommendation.streamlit.app/" target="_blank" rel="noopener">Live App</a>
+          </div>
         </div>
-      </div>
-      <!-- Project 6 -->
-      <div class="project-card">
-        <h3>Employee Attrition Prediction</h3>
-        <p>Predictive modeling for employee attrition using Decision Trees, Random Forest, AdaBoost, and Gradient Boosting.</p>
-        <p><em>Technologies:</em> Python, Decision Trees, Random Forest, AdaBoost, Gradient Boosting</p>
-        <div class="project-links">
-          <a href="https://github.com/nishantsingh-ds/Employee-Attrition-Prediction" target="_blank" rel="noopener">GitHub</a>
+        <!-- Project 6 -->
+        <div class="project-card">
+          <h3>Employee Attrition Prediction</h3>
+          <p>Predictive modeling for employee attrition using Decision Trees, Random Forest, AdaBoost, and Gradient Boosting.</p>
+          <p><em>Technologies:</em> Python, Decision Trees, Random Forest, AdaBoost, Gradient Boosting</p>
+          <div class="project-links">
+            <a href="https://github.com/nishantsingh-ds/Employee-Attrition-Prediction" target="_blank" rel="noopener">GitHub</a>
+          </div>
         </div>
-      </div>
-      <!-- Project 7 -->
-      <div class="project-card">
-        <h3>Data Scientist Salary Analysis</h3>
-        <p>Salary prediction and market analysis for data scientists using multiple linear regression and EDA.</p>
-        <p><em>Technologies:</em> Python, EDA, Multiple Linear Regression</p>
-        <div class="project-links">
-          <a href="https://github.com/nishantsingh-ds/Data-Scientist-Salary-Analysis" target="_blank" rel="noopener">GitHub</a>
+        <!-- Project 7 -->
+        <div class="project-card">
+          <h3>Data Scientist Salary Analysis</h3>
+          <p>Salary prediction and market analysis for data scientists using multiple linear regression and EDA.</p>
+          <p><em>Technologies:</em> Python, EDA, Multiple Linear Regression</p>
+          <div class="project-links">
+            <a href="https://github.com/nishantsingh-ds/Data-Scientist-Salary-Analysis" target="_blank" rel="noopener">GitHub</a>
+          </div>
         </div>
-      </div>
-      <!-- Project 8 -->
-      <div class="project-card">
-        <h3>Web Text Analysis</h3>
-        <p>Web scraping and sentiment analysis tool using BeautifulSoup, nltk, and Python to extract online text data.</p>
-        <p><em>Technologies:</em> Python, BeautifulSoup, nltk, Sentiment Analysis</p>
-        <div class="project-links">
-          <a href="https://github.com/nishantsingh-ds/Web-Text-Analysis" target="_blank" rel="noopener">GitHub</a>
+        <!-- Project 8 -->
+        <div class="project-card">
+          <h3>Web Text Analysis</h3>
+          <p>Web scraping and sentiment analysis tool using BeautifulSoup, nltk, and Python to extract and analyze text data.</p>
+          <p><em>Technologies:</em> Python, BeautifulSoup, nltk, Sentiment Analysis</p>
+          <div class="project-links">
+            <a href="https://github.com/nishantsingh-ds/Web-Text-Analysis" target="_blank" rel="noopener">GitHub</a>
+          </div>
         </div>
-      </div>
-      <!-- Project 9 -->
-      <div class="project-card">
-        <h3>Fraud Detection Analysis</h3>
-        <p>Fraud detection on financial transactions using Isolation Forest, LOF, and One-Class SVM.</p>
-        <p><em>Technologies:</em> Python, Isolation Forest, LOF, One-Class SVM</p>
-        <div class="project-links">
-          <a href="https://github.com/nishantsingh-ds/Fraud-Detection" target="_blank" rel="noopener">GitHub</a>
+        <!-- Project 9 -->
+        <div class="project-card">
+          <h3>Fraud Detection Analysis</h3>
+          <p>Fraud detection on financial transactions using Isolation Forest, LOF, and One-Class SVM.</p>
+          <p><em>Technologies:</em> Python, Isolation Forest, LOF, One-Class SVM</p>
+          <div class="project-links">
+            <a href="https://github.com/nishantsingh-ds/Fraud-Detection" target="_blank" rel="noopener">GitHub</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Contact Section -->
-<section id="contact">
-  <div class="container">
-    <h2>Contact Me</h2>
-    <div class="contact-icons">
-      <a href="https://www.linkedin.com/in/nishantsingh" target="_blank" rel="noopener" title="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/nishantsingh-ds" target="_blank" rel="noopener" title="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="mailto:nishantsingh@example.com" title="Email">
-        <i class="fas fa-envelope"></i>
-      </a>
-      <a href="https://discord.gg/yourdiscordinvite" target="_blank" rel="noopener" title="Discord">
-        <i class="fab fa-discord"></i>
-      </a>
-      <a href="https://www.kaggle.com/nishantsingh23pbt" target="_blank" rel="noopener" title="Kaggle">
-        <i class="fab fa-kaggle"></i>
-      </a>
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <div class="contact-icons">
+        <a href="https://www.linkedin.com/in/nishantsingh" target="_blank" rel="noopener" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/nishantsingh-ds" target="_blank" rel="noopener" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:nishantsingh@example.com" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://discord.gg/yourdiscordinvite" target="_blank" rel="noopener" title="Discord">
+          <i class="fab fa-discord"></i>
+        </a>
+        <a href="https://www.kaggle.com/nishantsingh23pbt" target="_blank" rel="noopener" title="Kaggle">
+          <i class="fab fa-kaggle"></i>
+        </a>
+      </div>
+      <form id="contact-form" action="mailto:nishantsingh@example.com" method="post" enctype="text/plain">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+  
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+  
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+  
+        <button type="submit" class="btn">Send Message</button>
+      </form>
     </div>
-    <form id="contact-form" action="mailto:nishantsingh@example.com" method="post" enctype="text/plain">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-  
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-  
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-  
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-  </div>
-</section>
+  </section>
 
+  <!-- Back-to-Top Button -->
+  <button id="back-to-top" title="Back to Top">&#8679;</button>
 
   <!-- Footer -->
   <footer>
@@ -583,7 +661,28 @@ I'm Nishant Singh – a Data Scientist and Machine Learning Engineer pursuing an
       darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
     });
 
-    // Animate progress bars when in view
+    // Skills Toggle (Global Flag)
+    let isPercentageView = true;
+    const toggleSkillView = document.getElementById('toggle-skill-view');
+    toggleSkillView.addEventListener('click', () => {
+      const skills = document.querySelectorAll('.skill');
+      if (isPercentageView) {
+        skills.forEach(skill => {
+          skill.querySelector('.progress').style.display = 'none';
+          skill.querySelector('.years-label').style.display = 'inline';
+        });
+        toggleSkillView.textContent = 'Show Percentage';
+      } else {
+        skills.forEach(skill => {
+          skill.querySelector('.progress').style.display = 'block';
+          skill.querySelector('.years-label').style.display = 'none';
+        });
+        toggleSkillView.textContent = 'Show Years';
+      }
+      isPercentageView = !isPercentageView;
+    });
+
+    // Animate progress bars on scroll using IntersectionObserver
     const progressBars = document.querySelectorAll('.progress-bar');
     const animateProgressBars = () => {
       progressBars.forEach(bar => {
@@ -592,8 +691,7 @@ I'm Nishant Singh – a Data Scientist and Machine Learning Engineer pursuing an
       });
     };
 
-    // Use IntersectionObserver for animating skills
-    const observer = new IntersectionObserver((entries, observer) => {
+    const progressObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           animateProgressBars();
@@ -601,29 +699,35 @@ I'm Nishant Singh – a Data Scientist and Machine Learning Engineer pursuing an
         }
       });
     }, { threshold: 0.5 });
-
     progressBars.forEach(bar => {
-      observer.observe(bar);
+      progressObserver.observe(bar);
     });
 
-  const toggleSkillView = document.getElementById('toggle-skill-view');
-  toggleSkillView.addEventListener('click', () => {
-    const skills = document.querySelectorAll('.skill');
-    skills.forEach(skill => {
-      const progress = skill.querySelector('.progress');
-      const label = skill.querySelector('.years-label');
-      // If progress bar is visible, hide it and show the years label; otherwise reverse
-      if (progress.style.display === 'none') {
-        progress.style.display = 'block';
-        label.style.display = 'none';
-        toggleSkillView.textContent = 'Show Years';
+    // Animate timeline items on scroll
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+    timelineItems.forEach(item => {
+      timelineObserver.observe(item);
+    });
+
+    // Back-to-Top Button
+    const backToTopButton = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopButton.style.display = 'block';
       } else {
-        progress.style.display = 'none';
-        label.style.display = 'inline';
-        toggleSkillView.textContent = 'Show Percentage';
+        backToTopButton.style.display = 'none';
       }
     });
-  });
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   </script>
 </body>
 </html>
